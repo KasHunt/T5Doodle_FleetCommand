@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - JigsawPiece
+  - NoExplode
+  - Water
+  - Ammo
+  - LowPoly
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player 1 Only
+  - Player 2 Only
+  - Player 3 Only
+  - Player 4 Only
+  - Team 1 Only
+  - Team 2 Only
+  - Team 3 Only
+  - Team 4 Only
+  - Team 1 Excluded
+  - Team 2 Excluded
+  - Team 3 Excluded
+  - Team 4 Excluded
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Explosions
+    uniqueID: 4117437267
+    locked: 0

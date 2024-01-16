@@ -1,0 +1,9 @@
+<linker>
+	<assembly fullname="System" preserve="all"/>
+	<assembly fullname="System.Core" preserve="all"/>
+	<assembly fullname="System.Web" preserve="all"/>
+
+	<assembly fullname="Thrift" preserve="all"/>
+	<assembly fullname="MixCast-Thrift" preserve="all"/>
+	<assembly fullname="MixCast-SDK-Thrift" preserve="all"/>
+</linker>
