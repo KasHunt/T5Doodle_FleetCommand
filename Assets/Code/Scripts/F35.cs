@@ -327,6 +327,8 @@ namespace Code.Scripts
             // Get the missile that will be fired (or null if no missile is available)
             if (!_missiles.TryFirstOrDefault(ele => ele.Value.Available, out var available)) return false;
 
+            Debug.Log("F35 preparing to fire");
+
             available.Value.Available = false;
             targetReservation = new TargetReservation(missilePool.TakeFromPool());
             targetReservation.Missile.SetLayer(initialLayer);
@@ -591,8 +593,16 @@ namespace Code.Scripts
             var haveMadeVisible = false;
             missile.LaunchMissile(_currentSpeed, target, _ =>
             {
-                missilePool.ReturnToPool(missile);
-                onImpact?.Invoke();
+                if (missile != null)
+                {
+                    Debug.Log($"F35 returning missile to pool");
+                    missilePool.ReturnToPool(missile);
+                    onImpact?.Invoke();
+                }
+                else
+                {
+                    Debug.Log($"F35 skipping null missile");
+                }
             },
             () => { },
                 (_, _, flightFraction) =>
