@@ -67,6 +67,7 @@ namespace Code.Scripts
 
         public override bool PrepareToFire(int initialLayer, out FireReservation reservation)
         {
+            UnityEngine.Debug.Log("LCS preparing to fire");
             var firePackage = deckGun.PrepareFirePackage(initialLayer, burstCount, out var followTarget);
             reservation = new LcsFireReservation(GetIdent(), FireAtTarget, followTarget, firePackage);
             return true;

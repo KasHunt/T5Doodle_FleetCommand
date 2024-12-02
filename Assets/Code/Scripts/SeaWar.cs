@@ -1568,7 +1568,17 @@ namespace Code.Scripts
         {
             // Obtain the next commander who's still playing
             Commander commander;
-            while (!Commanders[commander = IncrementAttackingCommander()].Playing.Value) {}
+            int attempts = 0; // Add a counter to prevent infinite loop
+            while (!Commanders[commander = IncrementAttackingCommander()].Playing.Value && attempts < Commanders.Count)
+            {
+                attempts++;
+            }
+
+            if (attempts == Commanders.Count)
+            {
+                Debug.LogWarning("No commanders are currently playing. Resetting game state.");
+                return;
+            }
             
             _launchWarningShown = false;
             _commanderUnderAttack = null;
