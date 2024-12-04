@@ -1568,7 +1568,20 @@ namespace Code.Scripts
         {
             // Obtain the next commander who's still playing
             Commander commander;
-            while (!Commanders[commander = IncrementAttackingCommander()].Playing.Value) {}
+            int attempts = 0; // Add a counter to prevent infinite loop
+            while (!Commanders[commander = IncrementAttackingCommander()].Playing.Value && attempts < Commanders.Count)
+            {
+                attempts++;
+            }
+
+            if (attempts == Commanders.Count)
+            {
+                Debug.LogWarning("No commanders are currently playing.");
+                // todo (sclokey): Figure out what to do to in this case where all players are
+                // somehow null. Also figure out why any of the players are showing up null when
+                // the glasses are still plugged in.
+                return;
+            }
             
             _launchWarningShown = false;
             _commanderUnderAttack = null;

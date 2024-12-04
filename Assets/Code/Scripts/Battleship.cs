@@ -65,6 +65,7 @@ namespace Code.Scripts
 
         public override bool PrepareToFire(int initialLayer, out FireReservation reservation)
         {
+            Debug.Log("Battleship preparing to fire");
             SeaWar.IGameboardFollowTarget followTarget = null;
             var firePackages = new List<GunTurret.FirePackage>();
             foreach (var gunTurret in gunTurrets)

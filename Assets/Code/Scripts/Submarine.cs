@@ -203,10 +203,18 @@ namespace Code.Scripts
                     _ => element.info.OnImpact?.Invoke(), 
                     () =>
                     {
-                        missilePool.ReturnToPool(element.info.Missile);
-                        element.info.Missile = null;
-                        
-                        _availableMissiles.Enqueue(element.info);
+                        if (element.info.Missile != null)
+                        {
+                            Debug.Log($"submarine returning missile to pool");
+                            missilePool.ReturnToPool(element.info.Missile);
+                            element.info.Missile = null;
+
+                            _availableMissiles.Enqueue(element.info);
+                        }
+                        else
+                        {
+                            Debug.Log($"submarine skipping null missile");
+                        }
                     },
                     (_, _, flightFraction) =>
                     {
@@ -241,22 +249,39 @@ namespace Code.Scripts
         public override bool PrepareToFire(int initialLayer, out FireReservation reservation)
         {
             reservation = new FireReservation();
-            
+
             if (IsDestroyed()) return false;
-            
+
+            Debug.Log("Submarine preparing to fire");
+
+            if (missilePool == null)
+            {
+                Debug.LogError("Missile pool is not initialized");
+                return false;
+            }
+
             // Get the next available missile
-            var available = _availableMissiles.TryDequeue(out var missileInfo);
-            if (!available) return false;
+            if (!_availableMissiles.TryDequeue(out var missileInfo))
+            {
+                Debug.LogWarning("No available missiles to fire");
+                return false;
+            }
+
             var missile = missilePool.TakeFromPool();
-            
+            if (missile == null)
+            {
+                Debug.LogError("Failed to take missile from pool.");
+                return false;
+            }
+
             // Reattach the missile to the vessel
             missile.SetMissileParent(transform);
-                
+
             // Reset the missile, and set it's initial visibility
             var missilePosition = PositionForHatch(missileInfo.HatchIndex);
             missile.ResetMissile(missilePosition, Quaternion.identity, transform.localScale);
             missile.SetLayer(initialLayer);
-            
+
             missileInfo.Missile = missile;
             reservation = new SubFireReservation(GetIdent(), FireAtTarget, missileInfo.Missile, missileInfo);
             return true;

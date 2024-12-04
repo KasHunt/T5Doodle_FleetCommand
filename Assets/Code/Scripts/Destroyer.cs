@@ -102,12 +102,29 @@ namespace Code.Scripts
             reservation = new FireReservation();
             
             if (IsDestroyed()) return false;
+
+            Debug.Log("Destroyer preparing to fire");
+
+            if (missilePool == null)
+            {
+                Debug.LogError("Missile pool is not initialized");
+                return false;
+            }
             
             // Get the next available missile
-            var available = _availableMissiles.TryDequeue(out var missileInfo);
-            if (!available) return false;
+            if (!_availableMissiles.TryDequeue(out var missileInfo))
+            {
+                Debug.LogWarning("No available missiles to fire");
+                return false;
+            }
+
             var missile = missilePool.TakeFromPool();
-            
+            if (missile == null)
+            {
+                Debug.LogError("Failed to take missile from pool.");
+                return false;
+            }
+
             // Reattach the missile to the vessel
             missile.SetMissileParent(transform);
             
@@ -139,8 +156,16 @@ namespace Code.Scripts
                     _ => onImpactCallback?.Invoke(), 
                     () =>
                     {
-                        _availableMissiles.Enqueue(fireReservation.Info);
-                        missilePool.ReturnToPool(missile);
+                        if (missile != null)
+                        {
+                            Debug.Log($"destroyer returning missile to pool");
+                            _availableMissiles.Enqueue(fireReservation.Info);
+                            missilePool.ReturnToPool(missile);
+                        }
+                        else
+                        {
+                            Debug.Log($"destroyer skipping null missile");
+                        }
                     },
                     (_, _, flightFraction) =>
                     {
