@@ -27,7 +27,7 @@ namespace Code.Scripts.Utils
             Value = initialValue;
         }
 
-        private void SetValue(T value)
+        public void SetValue(T value)
         {
             if (EqualityComparer<T>.Default.Equals(Value, value)) return;
             
