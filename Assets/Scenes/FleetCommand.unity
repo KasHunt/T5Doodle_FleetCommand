@@ -3510,7 +3510,7 @@ MonoBehaviour:
   viewRotationAcceleration: 90
   viewRotationMaxSpeed: 360
   viewScaleFactor: 1
-  viewScaleOffset: -0.7
+  viewScaleOffset: -0.6
   viewZoomSpeed: 1
   panToAttackOriginDuration: 2.5
   dwellOnAttackOriginDuration: 1.5
