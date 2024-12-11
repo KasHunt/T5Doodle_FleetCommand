@@ -2321,6 +2321,7 @@ MonoBehaviour:
   decrementObject: {fileID: 1215337442957372654}
   incrementObject: {fileID: 36536994952377348}
   range: {x: 0, y: 9}
+  positionValue: 0
   continuous: 1
   rotationAxis: 0
   invertRotation: 1
@@ -2375,6 +2376,7 @@ MonoBehaviour:
   decrementObject: {fileID: 582825912977435676}
   incrementObject: {fileID: 2813419663312488091}
   range: {x: 0, y: 2}
+  positionValue: 0
   continuous: 0
   rotationAxis: 0
   invertRotation: 1
@@ -2494,6 +2496,7 @@ MonoBehaviour:
   decrementObject: {fileID: 3489643826584246751}
   incrementObject: {fileID: 290581111374526757}
   range: {x: 0, y: 9}
+  positionValue: 0
   continuous: 1
   rotationAxis: 2
   invertRotation: 0
@@ -2939,6 +2942,7 @@ MonoBehaviour:
   decrementObject: {fileID: 8497374021045908838}
   incrementObject: {fileID: 7802627756803961946}
   range: {x: 0, y: 1}
+  positionValue: 0
   continuous: 0
   rotationAxis: 0
   invertRotation: 1
@@ -2971,7 +2975,6 @@ MonoBehaviour:
   openRotation: 120
   closedRotation: 0
   initialState: 0
-  testToggle: 0
 --- !u!1 &2028311043200733420 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4921318779535397110, guid: bf2e48463bb4c7143bb476a59c43874a, type: 3}
@@ -3119,7 +3122,6 @@ MonoBehaviour:
   openRotation: 160
   closedRotation: 0
   initialState: 1
-  testToggle: 0
 --- !u!1 &2571517708875681322 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8918770782775578160, guid: bf2e48463bb4c7143bb476a59c43874a, type: 3}
@@ -3329,7 +3331,6 @@ MonoBehaviour:
   openRotation: 160
   closedRotation: 0
   initialState: 1
-  testToggle: 0
 --- !u!1 &3121339933756910159 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8303284623983749717, guid: bf2e48463bb4c7143bb476a59c43874a, type: 3}
@@ -3417,6 +3418,7 @@ MonoBehaviour:
   decrementObject: {fileID: 1570800286470330574}
   incrementObject: {fileID: 5511253152695948084}
   range: {x: 0, y: 9}
+  positionValue: 0
   continuous: 1
   rotationAxis: 0
   invertRotation: 1
@@ -3704,6 +3706,7 @@ MonoBehaviour:
   decrementObject: {fileID: 2838256774627429663}
   incrementObject: {fileID: 6630370348097856572}
   range: {x: 0, y: 9}
+  positionValue: 0
   continuous: 0
   rotationAxis: 0
   invertRotation: 1
@@ -3750,6 +3753,7 @@ MonoBehaviour:
   decrementObject: {fileID: 385967968894619095}
   incrementObject: {fileID: 2723635423663246530}
   range: {x: 0, y: 2}
+  positionValue: 2
   continuous: 0
   rotationAxis: 0
   invertRotation: 1
@@ -4176,6 +4180,7 @@ MonoBehaviour:
   decrementObject: {fileID: 2928864811793769250}
   incrementObject: {fileID: 7484767050042867270}
   range: {x: 0, y: 9}
+  positionValue: 0
   continuous: 1
   rotationAxis: 0
   invertRotation: 1
@@ -4230,6 +4235,7 @@ MonoBehaviour:
   decrementObject: {fileID: 3527284912402181059}
   incrementObject: {fileID: 5046923876170715711}
   range: {x: 0, y: 9}
+  positionValue: 0
   continuous: 1
   rotationAxis: 0
   invertRotation: 1
@@ -4268,6 +4274,7 @@ MonoBehaviour:
   decrementObject: {fileID: 879136656561944398}
   incrementObject: {fileID: 1089326241186895503}
   range: {x: 0, y: 9}
+  positionValue: 0
   continuous: 0
   rotationAxis: 0
   invertRotation: 1
@@ -4442,7 +4449,6 @@ MonoBehaviour:
   openRotation: 120
   closedRotation: 0
   initialState: 0
-  testToggle: 0
 --- !u!1 &6580697131057371998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8991051474514830524, guid: bf2e48463bb4c7143bb476a59c43874a, type: 3}
@@ -4518,6 +4524,7 @@ MonoBehaviour:
   decrementObject: {fileID: 2835129531774495209}
   incrementObject: {fileID: 3716405025576636562}
   range: {x: 0, y: 9}
+  positionValue: 0
   continuous: 0
   rotationAxis: 0
   invertRotation: 1
@@ -5012,6 +5019,7 @@ MonoBehaviour:
   decrementObject: {fileID: 2952277474728783055}
   incrementObject: {fileID: 1362947965426186648}
   range: {x: 0, y: 9}
+  positionValue: 0
   continuous: 1
   rotationAxis: 0
   invertRotation: 1

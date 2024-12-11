@@ -14,6 +14,8 @@ namespace Code.Scripts.Panel
         [Header("Position/Range")]
         [Vector2IntRange(0, 9)]
         public Vector2Int range;
+        [SerializeField]
+        private int positionValue = 0;
         public NotifyingVariable<int> Position = new(0);
         public bool continuous;
         public GeometryUtils.Axis rotationAxis = GeometryUtils.Axis.X;
@@ -55,6 +57,8 @@ namespace Code.Scripts.Panel
         
         private void Start()
         {
+            Position.Value = positionValue;
+
             var angle = AngleForPosition;
             _slewController = new SnappingAngleSlewController(
                 initialAngle: angle,
