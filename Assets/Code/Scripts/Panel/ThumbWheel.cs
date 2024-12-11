@@ -57,7 +57,7 @@ namespace Code.Scripts.Panel
         
         private void Start()
         {
-            Position.SetValue(positionValue);
+            Position.Value = positionValue;
 
             var angle = AngleForPosition;
             _slewController = new SnappingAngleSlewController(
